@@ -1,33 +1,22 @@
 {
-  "name": "remote-data-screencast",
+  "name": "hello-bill",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "0.7.0"
-  },
   "dependencies": {
-    "react": "15.4.1",
-    "react-dom": "15.4.1"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "webpack": "^3.9.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "api": "json-server --watch db.json --port 3004"
+    "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/javascript-playground/remote-data-react-screencasts.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/javascript-playground/remote-data-react-screencasts/issues"
-  },
-  "homepage": "https://github.com/javascript-playground/remote-data-react-screencasts#readme"
-
-
+  "devDependencies": {},
+  "author": "Yiran Zhao",
+  "license": "ISC"
 }

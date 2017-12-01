@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import { ActivityIndicator, ListView, Text, View } from 'react';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
