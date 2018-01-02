@@ -14,4 +14,4 @@ WORKDIR /usr/src/app/mpowerlite
 
 # RUN yarn install
 
-# CMD yarn start
+CMD yarn start
