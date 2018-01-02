@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  web:
+    build: './app'
+    ports:
+      - "3030:3000"
+    volumes:
+      - "./app:/usr/src/app"
+    stdin_open: true
+    tty: true
+    container_name: mpowerlite
