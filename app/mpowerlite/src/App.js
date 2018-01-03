@@ -15,9 +15,9 @@ class App extends Component {
     fetch('https://mpower-api-docker.cirg.washington.edu/api/v1.0/patients')
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson)
+        console.log(responseJson.patients)
         this.setState({
-          data: responseJson,
+          data: responseJson.patients,
         })
       })
       .catch((error) => {
@@ -31,15 +31,15 @@ class App extends Component {
       <div>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Hello, Bill!</h1>
+            <h1 className="App-title">Welcome to mPOWEr Lite!</h1>
           </header>
         </div>
 
 
         <div className = "App-body"> {
-          this.state.data.map((dynamicData, key) =>
+          this.state.data.map((dynamicData) =>
             <div>
-              {dynamicData.title}
+              {dynamicData.MRN}
             </div>
           ) }
         </div>
