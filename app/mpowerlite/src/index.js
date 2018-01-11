@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import './index.css';
-import App from './App';
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import { ActivityIndicator, ListView, Text, View } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 const render = Component => {
   ReactDOM.render(
