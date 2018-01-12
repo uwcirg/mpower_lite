@@ -29,7 +29,7 @@ export default class extends React.Component {
   }
 
   fetchPatients() {
-    var api_path = "http://localhost:8080";
+    var api_path = "https://mpower-api.cirg.washington.edu";
 
     fetch(api_path+'/api/v1.0/patients').then((response) => response.json()).then((responseJson) => {
       this.setState({patients: responseJson.patients, loading: false, loaded: true, status: "Loaded"}, this.props.onComponentRefresh)
