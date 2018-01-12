@@ -2,6 +2,19 @@ import React from 'react';
 import { Column, Col, Card, CardBody, CardTitle, CardText, Table } from 'reactstrap';
 
 export default class extends React.Component {
+
+  fetchUsers() {
+    var api_path = "http://localhost:8080";
+
+    fetch(api_path+'/api/v1.0/users').then((response) => response.json()).then((responseJson) => {
+      console.log(responseJson.users)
+      this.setState({users: responseJson.users}, this.props.onComponentRefresh)
+    }).catch((error) => {
+      this.setState({status: error}, this.props.onComponentRefresh)
+      console.error(error);
+    });
+  }
+
   render() {
     return (
       <Col sm='6'>

@@ -20,7 +20,7 @@ render(App)
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./containers/App', () => {
     render(App)
   })
 }
