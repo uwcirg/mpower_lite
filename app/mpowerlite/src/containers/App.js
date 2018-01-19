@@ -72,7 +72,7 @@ class App extends Component {
     return ( <div id='viewport'>
       <Router>
         <div>
-          <NavBar />
+          <NavBar collapsed={false} />
           <Container fluid={true}>
             <Switch>
               <Route exact path='/' render={() => <Home {...homeProps}  /> } />

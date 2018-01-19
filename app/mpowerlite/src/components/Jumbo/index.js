@@ -1,3 +1,5 @@
+/* TODO: change to presentational SFC */
+
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
