@@ -42,51 +42,49 @@ export default class extends React.Component {
   render() {
     const {loading, patients, status, loaded} = this.state
     return (
-      <Col sm='6'>
-        <Card>
-          <CardBody>
-            <CardTitle>Patients</CardTitle>
-            <CardText>List of patients recieved from mPOWEr API</CardText>
-          </CardBody>
-          <CardBody>
-            {(() => {
-              if(loading | !loaded){
-                return(<h3>{loading ? "Loading" : "Not Loading"} and {status} </h3>)
-              } else {
-                return(<div>
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>MRN</th>
-                        <th>Date of Birth</th>
-                        <th>Sex</th>
-                        <th>Consent Status</th>
-                        <th>Clinical Service</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {
-                        this.state.patients.map((patient) =>
-                          <tr key={patient.id}>
-                            <th scope="row">{patient.id}</th>
-                            <td>{patient.MRN}</td>
-                            <td>{patient.birthdate}</td>
-                            <td>{patient.gender}</td>
-                            <td>{patient.consent_status}</td>
-                            <td>{patient.clinical_service}</td>
-                          </tr>
-                        )
-                      }
-                    </tbody>
-                  </Table>
-                </div>
-                )
-              }
-            })()}
-          </CardBody>
-        </Card>
-      </Col>
+      <Card>
+        <CardBody>
+          <CardTitle>Patients</CardTitle>
+          <CardText>List of patients recieved from mPOWEr API</CardText>
+        </CardBody>
+        <CardBody>
+          {(() => {
+            if(loading | !loaded){
+              return(<h3>{loading ? "Loading" : "Not Loading"} and {status} </h3>)
+            } else {
+              return(<div>
+                <Table>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>MRN</th>
+                      <th>Date of Birth</th>
+                      <th>Sex</th>
+                      <th>Consent Status</th>
+                      <th>Clinical Service</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      this.state.patients.map((patient) =>
+                        <tr key={patient.id}>
+                          <th scope="row">{patient.id}</th>
+                          <td>{patient.MRN}</td>
+                          <td>{patient.birthdate}</td>
+                          <td>{patient.gender}</td>
+                          <td>{patient.consent_status}</td>
+                          <td>{patient.clinical_service}</td>
+                        </tr>
+                      )
+                    }
+                  </tbody>
+                </Table>
+              </div>
+              )
+            }
+          })()}
+        </CardBody>
+      </Card>
     )
   }
 }

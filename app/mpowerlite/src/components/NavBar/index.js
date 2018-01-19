@@ -1,6 +1,6 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-// import { NavLink } from 'react-router-dom';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink as BootNavLink, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 
 export default class extends React.Component {
   render() {
@@ -9,16 +9,17 @@ export default class extends React.Component {
       <NavbarToggler />
       <Collapse isOpen={false} navbar>
         <Nav className='ml-auto' navbar>
-          <NavItem>
-            <NavLink to="/">Home</NavLink>
-          </NavItem>
+          <NavItem><NavLink className='nav-link' to="/">Home</NavLink></NavItem>
+          <NavItem><NavLink className='nav-link' to="/patients">Patients</NavLink></NavItem>
+          <NavItem><NavLink className='nav-link' to="/users">Users</NavLink></NavItem>
+
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
               Login
             </DropdownToggle>
             <DropdownMenu >
               <DropdownItem>
-                <NavLink to='/'>SMART Sandbox</NavLink>
+                <BootNavLink to='/'>SMART Sandbox</BootNavLink>
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>

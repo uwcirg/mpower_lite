@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import {Container} from 'reactstrap';
 
 import './App.css';
 
 import NavBar from '../components/NavBar';
+import Home from '../components/Home';
 import Patients from '../components/Patients';
 import Users from '../components/Users';
-import Jumbo from '../components/Jumbo';
+import Patient from '../components/Patient';
 
 class App extends Component {
   constructor() {
@@ -48,47 +55,34 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // var api_path = "https://mpower-api-docker.cirg.washington.edu";
-
-    // console.log("##");
-    // console.log(this.state.fhir);
-    // console.log("##");
-    // // console.log(this.state.smart.patient.api.search({type: 'Condition'}));
-    // console.log("##");
-
-
-
-    //
-
-    //
-    // fetch(api_path+'/api/v1.0/users').then((response) => response.json()).then((responseJson) => {
-    //   console.log(responseJson.users)
-    //   this.setState({users: responseJson.users})
-    // }).catch((error) => {
-    //   console.error(error);
-    // });
   }
 
   render() {
     const {refreshing, refreshU, refreshP} = this.state;
+    const homeProps = {
+      jumboRefresh: this.onComponentRefresh.bind(this),
+      patientRefresh: this.onPatientRefresh.bind(this),
+      userRefresh: this.onUserRefresh.bind(this) ,
+      buttonBind: this.refreshAll.bind(this),
+      refreshing: refreshing,
+      refreshU: refreshU,
+      refreshP: refreshP
+    }
 
     return ( <div id='viewport'>
-      <NavBar />
-      <Container fluid={true}>
-        <Jumbo onComponentRefresh={this.onComponentRefresh.bind(this)} requestRefresh={refreshing} />
-
-        <Button block color='info' size='large' onClick={this.refreshAll.bind(this)}>
-          <i className='fa fa-refresh' />
-          &nbsp;Load
-        </Button>
-
-        <br />
-
-        <Row>
-          <Users requestRefresh={refreshU} onComponentRefresh={this.onUserRefresh.bind(this)} />
-          <Patients requestRefresh={refreshP} onComponentRefresh={this.onPatientRefresh.bind(this)} />
-        </Row>
-      </Container>
+      <Router>
+        <div>
+          <NavBar />
+          <Container fluid={true}>
+            <Switch>
+              <Route exact path='/' render={() => <Home {...homeProps}  /> } />
+              <Route path='/users' render={() => <Users requestRefresh={refreshU} onComponentRefresh={homeProps.userRefresh} />} />
+              <Route path='/patients' render={() => <Patients requestRefresh={refreshP} onComponentRefresh={homeProps.patientRefresh} />} />
+              <Route path='/patient/:mrn' component={Patient} />
+            </Switch>
+          </Container>
+        </div>
+      </Router>
     </div>
     )
   }
