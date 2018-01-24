@@ -6,7 +6,7 @@ import {
     fetchNewTime
 } from '../../actions'
 
-import Home from '../../components/Home'
+import Jumbo from '../../components/Jumbo'
 
 const mapStateToProps = state => ({
     patientName: state.sof.patientName,
@@ -20,17 +20,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     return {
         updateTime: () => {
-            dispatch(fetchNewTime(ownProps.match.params.timezone))
+            dispatch(fetchNewTime(ownProps.timezone))
         },
         updatePatient: () => {
-            dispatch(fetchNewPatient(ownProps.match.params.patientId))
+            dispatch(fetchNewPatient(ownProps.patientId))
         }
     }
 }
 
-const UpdateHome = connect(
+const UpdateJumbo = connect(
     mapStateToProps,
     mapDispatchToProps,
-)(Home);
+)(Jumbo);
 
-export default UpdateHome;
+export default UpdateJumbo;

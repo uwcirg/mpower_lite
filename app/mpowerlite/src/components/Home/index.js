@@ -5,17 +5,16 @@ import { Container, Row, Col, Button } from 'reactstrap';
 
 import Patients from '../Patients';
 import Users from '../Users';
-import Jumbo from '../Jumbo';
+import UpdateJumbo from '../../containers/UpdateJumbo';
 
-// const Home = ({ jumboRefresh, patientRefresh, userRefresh, buttonBind, refreshing, refreshU, refreshP }) =>
-const Home = ({ patientName, loading, currentTime, updateTime, updatePatient }) =>
+const Home = ({match}) =>{
+  console.log("PROPSAGAIN")
+  console.log(match)
+  
+  const { timezone, patientId } = match.params;
+  return (
   <div>
-    <Jumbo patientName={patientName} loading={loading} currentTime={currentTime} />
-
-    <Button block color='info' size='large' onClick={() => { updatePatient(); updateTime(); } }>
-      <i className='fa fa-refresh' />
-      &nbsp;Load
-    </Button>
+    <UpdateJumbo timezone={timezone} patientId={patientId} />
 
     <br />
 
@@ -23,6 +22,7 @@ const Home = ({ patientName, loading, currentTime, updateTime, updatePatient }) 
       {/* <Col sm='6'><Users /></Col>
       <Col sm='6'><Patients /></Col> */}
     </Row>
-  </div>;
+  </div>);
+};
 
 export default Home;

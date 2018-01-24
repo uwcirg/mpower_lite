@@ -3,7 +3,7 @@ import * as types from '../reducers/types';
 const timehost = 'https://andthetimeis.com';
 const sofhost = 'https://sb-fhir-dstu2.smarthealthit.org/api/smartdstu2/open';
 
-export const fetchNewPatient = (id = "smart-1032702") => ({
+export const fetchNewPatient = (id) => ({
     type: types.FETCH_NEW_PATIENT,
     meta: {
         type: 'sof',
@@ -13,7 +13,7 @@ export const fetchNewPatient = (id = "smart-1032702") => ({
     }
 })
 
-export const fetchNewTime = (timezone = 'pst', str='now') => ({
+export const fetchNewTime = (timezone, str) => ({
     type: types.FETCH_NEW_TIME,
     meta: {
         type: 'api',
