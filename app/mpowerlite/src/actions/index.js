@@ -1,13 +1,25 @@
 import * as types from '../reducers/types';
 
-export const fetchNewPatient = () => ({
+const timehost = 'https://andthetimeis.com';
+const sofhost = 'https://sb-fhir-dstu2.smarthealthit.org/api/smartdstu2/open';
+
+export const fetchNewPatient = (id = "smart-1032702") => ({
     type: types.FETCH_NEW_PATIENT,
-    patient_name: "Static Patient"
+    meta: {
+        type: 'sof',
+        target: 'patientName',
+        host: sofhost, 
+        id: id
+    }
 })
 
-export const fetchNewTime = () => ({
+export const fetchNewTime = (timezone = 'pst', str='now') => ({
     type: types.FETCH_NEW_TIME,
-    currentTime: new Date().toString()
+    meta: {
+        type: 'api',
+        target: 'currentTime',
+        url: timehost + '/' + timezone + '/' + str + '.json'
+    }
 })
 
 export const login = (user) => ({

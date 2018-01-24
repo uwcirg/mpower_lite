@@ -1,13 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import loggingMiddleware from '../../middleware/loggingMiddleware';
+import apiMiddleware from '../../middleware/apiMiddleware';
 
 import App from '../App';
 import reducer from '../../reducers';
 
 const Root = (props) => {
-  const store = createStore(reducer, devToolsEnhancer()); 
+  const store = createStore(reducer, composeWithDevTools(
+    applyMiddleware(
+      loggingMiddleware,
+      apiMiddleware,
+    )
+  )); 
 
   console.log("1.");
   console.log(store);

@@ -8,11 +8,11 @@ import Users from '../Users';
 import Jumbo from '../Jumbo';
 
 // const Home = ({ jumboRefresh, patientRefresh, userRefresh, buttonBind, refreshing, refreshU, refreshP }) =>
-const Home = ({ patient_name, loading, currentTime, updateTime }) =>
+const Home = ({ patientName, loading, currentTime, updateTime, updatePatient }) =>
   <div>
-    <Jumbo patient_name={patient_name} loading={loading} currentTime={currentTime} />
+    <Jumbo patientName={patientName} loading={loading} currentTime={currentTime} />
 
-    <Button block color='info' size='large' onClick={updateTime}>
+    <Button block color='info' size='large' onClick={() => { updatePatient(); updateTime(); } }>
       <i className='fa fa-refresh' />
       &nbsp;Load
     </Button>

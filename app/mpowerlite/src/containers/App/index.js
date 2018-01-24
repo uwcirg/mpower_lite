@@ -18,55 +18,15 @@ import Users from '../../components/Users';
 import Patient from '../../components/Patient';
 
 const App = props => {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     patients: [],
-  //     users: [],
-  //     fhir: window.fhir,
-  //     patient_name: "",
-  //     refreshing: false,
-  //     refreshP: false,
-  //     refreshU: false
-  //   };
-  // }
-
-
-  // refresh() {
-  //   this.setState({refreshing: true})
-  // }
-
-  // onComponentRefresh() {
-  //   this.setState({refreshing: false})
-  // }
-  // pRefresh() {
-  //   this.setState({refreshP: true})
-  // }
-  // onPatientRefresh() {
-  //   this.setState({refreshP: false})
-  // }
-  // uRefresh() {
-  //   this.setState({refreshU: true})
-  // }
-  // onUserRefresh() {
-  //   this.setState({refreshU: false})
-  // }
-
-  // refreshAll() {
-  //   this.refresh();
-  //   this.pRefresh();
-  // }
-
-  // componentDidMount() {
-  // }
-
+ 
   return ( <div id='viewport'>
     <Router>
       <div>
         <NavBar collapsed={false} />
         <Container fluid={true}>
           <Switch>
-            <Route exact path='/' render={() => <UpdateHome /> } />
+            <Route exact path='/' render={() => <UpdateHome timezone='cet' /> } />
+            <Route exact path='/time/:timezone'component={UpdateHome} />
             <Route path='/users' render={() => <Users />} />
             <Route path='/patients' render={() => <Patients />} />
             <Route path='/patient/:mrn' component={Patient} />

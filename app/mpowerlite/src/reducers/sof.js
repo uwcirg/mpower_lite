@@ -32,9 +32,9 @@ import * as types from './types';
 const initialState = {
     patients: [],
     users: [],
-    patient_name: "Initial Name",
+    patientName: "Initial Name",
     loading: false,
-    currentTime: new Date().toString(),
+    currentTime: "Not Loaded"
     // smart: getSmartClient(),
 
     //     refreshing: false,
@@ -50,7 +50,7 @@ const sof = (state = initialState, action) => {
         case types.FETCH_NEW_PATIENT:
             return {
                 ...state,
-                patient_name: action.patient_name
+                patientName: action.patientName
             }             
         case types.FETCH_NEW_TIME:
             return {
