@@ -8,7 +8,16 @@ const fetchPatient = (smartClient, action, target) => {
             });
            delete newAction.meta;
            return newAction;
-    });
+        })
+        .catch((error) => {
+            console.log(error);
+            let newAction = Object.assign({}, action, {
+                [target]: "Unable To Find Patient: " + error
+            });
+            delete newAction.meta;
+            return newAction;
+
+        });
 
     console.log(p);
     return p;

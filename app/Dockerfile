@@ -11,6 +11,6 @@ COPY . /usr/src/app
 
 WORKDIR /usr/src/app/mpowerlite
 
-RUN yarn install
+# RUN yarn install
 
 CMD yarn start

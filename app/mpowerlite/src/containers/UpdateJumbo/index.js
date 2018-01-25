@@ -1,3 +1,4 @@
+import React from 'react'
 import {
     connect
 } from 'react-redux'
@@ -22,8 +23,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         updateTime: () => {
             dispatch(fetchNewTime(ownProps.timezone))
         },
-        updatePatient: () => {
-            dispatch(fetchNewPatient(ownProps.patientId))
+        updatePatient: (env) => {
+            const pid = env.target.querySelector('input').value;
+            dispatch(fetchNewPatient(pid ? pid : ownProps.patientId));
         }
     }
 }
