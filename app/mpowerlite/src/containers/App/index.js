@@ -11,7 +11,8 @@ import {Container} from 'reactstrap';
 
 import './App.css';
 
-import NavBar from '../../components/NavBar';
+// import NavBar from '../../components/NavBar';
+import CollapseNav from '../../containers/CollapseNav';
 import Home from '../../components/Home';
 import Patients from '../../components/Patients';
 import Users from '../../components/Users';
@@ -22,7 +23,7 @@ const App = props => {
   return ( <div id='viewport'>
     <Router>
       <div>
-        <NavBar collapsed={false} />
+        <CollapseNav />
         <Container fluid={true}>
           <Switch>
             <Route exact path='/' render={() => <Home match={{params: {patientId: "smart-1032702", timezone: 'cet'}}}  /> } />

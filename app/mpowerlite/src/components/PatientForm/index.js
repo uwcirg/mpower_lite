@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Field } from 'redux-form'
 import { Form, Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 
 const PatientForm = ({handleSubmit}) => 

@@ -30,3 +30,7 @@ export const login = (user) => ({
 export const logout = () => ({
     type: types.LOGOUT,
 })
+
+export const toggleNav = () => ({
+    type: types.TOGGLE_NAV,
+})

@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom';
 const NavBar = ({collapsed, onToggle}) =>
   <Navbar color="faded" light expand='sm'>
     <NavbarBrand href='/'><img alt='mPOWEr Lite' src='https://www.mpowercare.org/wp-content/uploads/2016/07/logo-for-web.png' /></NavbarBrand>
-    <NavbarToggler />
+    <NavbarToggler onClick={onToggle} />
     <Collapse isOpen={collapsed} navbar>
       <Nav className='ml-auto' navbar>
         <NavItem><NavLink className='nav-link' to="/">Home</NavLink></NavItem>
