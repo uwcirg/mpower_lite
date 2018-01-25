@@ -20,10 +20,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    <!-- Bootstrap and Font Awesome css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Google fonts - Montserrat for headings, Cardo for copy-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,400italic,700">
+
+
 
   <title>mPOWEr Lite</title>
 </head>
@@ -31,29 +33,10 @@
 <body>
   <noscript>
       You need to enable JavaScript to run this app.
-    </noscript>
-
-
-  <header class="navbar navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button class="collapsed navbar-toggle" type="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/" class="navbar-brand"><img alt='mPOWEr Lite' src='https://www.mpowercare.org/wp-content/uploads/2016/07/logo-for-web.png' height=20 /></a>
-      </div>
-      <nav class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li> <a href="/">Home</a> </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  </noscript>
 
   <div id="root"></div>
+
   <script src="%PUBLIC_URL%/nativeFhir.js"></script>
   <script src="%PUBLIC_URL%/fhir-client-native.js"></script>
   <!--

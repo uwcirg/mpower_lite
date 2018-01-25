@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
   web:
+    restart: always
     build: './app'
     ports:
       - "3030:3000"

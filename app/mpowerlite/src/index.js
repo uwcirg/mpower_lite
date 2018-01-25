@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import './index.css';
-import App from './App';
+import Root from './containers/Root';
 import registerServiceWorker from './registerServiceWorker';
 import { ActivityIndicator, ListView, Text, View } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 const render = Component => {
   ReactDOM.render(
@@ -15,12 +16,12 @@ const render = Component => {
   )
 }
 
-render(App)
+render(Root)
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    render(App)
+  module.hot.accept('./containers/Root', () => {
+    render(Root)
   })
 }
 
