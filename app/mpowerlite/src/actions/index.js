@@ -8,7 +8,7 @@ export const fetchNewPatient = (id) => ({
     meta: {
         type: 'sof',
         target: 'patientName',
-        host: sofhost, 
+        host: sofhost,
         id: id
     }
 })
@@ -22,13 +22,32 @@ export const fetchNewTime = (timezone, str) => ({
     }
 })
 
-export const login = (user) => ({
-    type: types.LOGIN,
-    user: user
-})
+export const tryLogin = ({
+    username,
+    password
+}) => {
+    console.log("ADMIN!!")
+    console.log(username)
+    console.log(password)
+    
+    if (username === 'admin@admin.com' && password === 'secret') {
+        return {
+            type: types.LOGIN_SUCCESS,
+            payload: {
+                username,
+                password
+            }
+        }
+    } else {
+        return {
+            type: types.LOGIN_FAILURE,
+            payload: 'Invalid username or password'
+        }
+    }
+}
 
-export const logout = () => ({
-    type: types.LOGOUT,
+export const tryLogout = () => ({
+    type: types.LOGOUT
 })
 
 export const toggleNav = () => ({

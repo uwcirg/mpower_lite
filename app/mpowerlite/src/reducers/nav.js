@@ -4,7 +4,7 @@ const initialState = {
   collapsed: false,
 }
 
-const todos = (state = initialState, action) => {
+const nav = (state = initialState, action) => {
     switch (action.type) {
       case types.TOGGLE_NAV:
         return {
@@ -16,4 +16,4 @@ const todos = (state = initialState, action) => {
     }
   }
   
-  export default todos
+  export default nav

@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types'
 /* TODO: put in proptypes */
 
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink as BootNavLink, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Row, Col, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink as BootNavLink, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {NavLink} from 'react-router-dom';
+
+import "./NavBar.css"
+import Login from '../../containers/Login';
 
 const NavBar = ({collapsed, onToggle}) =>
   <Navbar color="faded" light expand='sm'>
@@ -19,10 +22,8 @@ const NavBar = ({collapsed, onToggle}) =>
           <DropdownToggle nav caret>
             Login
           </DropdownToggle>
-          <DropdownMenu >
-            <DropdownItem>
-              <BootNavLink to='/'>SMART Sandbox</BootNavLink>
-            </DropdownItem>
+          <DropdownMenu className='login-dp'>
+            <Login />
           </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>

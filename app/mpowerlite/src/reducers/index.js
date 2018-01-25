@@ -3,13 +3,13 @@ import {
 } from 'redux';
 import { reducer as formReducer } from 'redux-form'
 
-import currentUser from './currentUser'
+import auth from './auth'
 import sof from './sof'
 import nav from './nav'
 
 
 const mpowerLiteApp = combineReducers({
-    currentUser,
+    auth,
     sof,
     nav,
     form: formReducer
